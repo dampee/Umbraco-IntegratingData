@@ -224,6 +224,15 @@
     <Reference Include="System.Web.Services" />
     <Reference Include="System.EnterpriseServices" />
     <Reference Include="System.Xml.Linq" />
+    <Reference Include="Terratype, Version=1.0.17.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Terratype.1.0.18\lib\net45\Terratype.dll</HintPath>
+    </Reference>
+    <Reference Include="Terratype.GoogleMapsV3, Version=1.0.17.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Terratype.GoogleMapsV3.1.0.18\lib\net45\Terratype.GoogleMapsV3.dll</HintPath>
+    </Reference>
+    <Reference Include="Terratype.LeafletV1, Version=1.0.17.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Terratype.LeafletV1.1.0.18\lib\net45\Terratype.LeafletV1.dll</HintPath>
+    </Reference>
     <Reference Include="TidyNet, Version=1.0.0.0, Culture=neutral">
       <HintPath>..\packages\UmbracoCms.Core.7.10.4\lib\net45\TidyNet.dll</HintPath>
     </Reference>
@@ -279,13 +288,83 @@
     <Content Include="App_Plugins\Fluidity\resources\fluidity.resource.js" />
     <Content Include="App_Plugins\Fluidity\services\fluidity.bulkactions.service.js" />
     <Content Include="App_Plugins\Fluidity\services\fluidity.utility.service.js" />
+    <Content Include="App_Plugins\Terratype.GoogleMapsV3\Images\Example.png" />
+    <Content Include="App_Plugins\Terratype.GoogleMapsV3\Images\Logo.png" />
+    <Content Include="App_Plugins\Terratype.GoogleMapsV3\Images\m1.png" />
+    <Content Include="App_Plugins\Terratype.GoogleMapsV3\Images\m2.png" />
+    <Content Include="App_Plugins\Terratype.GoogleMapsV3\Images\m3.png" />
+    <Content Include="App_Plugins\Terratype.GoogleMapsV3\Images\m4.png" />
+    <Content Include="App_Plugins\Terratype.GoogleMapsV3\Images\m5.png" />
+    <Content Include="App_Plugins\Terratype.GoogleMapsV3\Lang\en-us.xml" />
+    <Content Include="App_Plugins\Terratype.GoogleMapsV3\readme.txt" />
+    <Content Include="App_Plugins\Terratype.GoogleMapsV3\Scripts\markerclusterer.js" />
+    <Content Include="App_Plugins\Terratype.GoogleMapsV3\Scripts\markerclusterer.min.js" />
+    <Content Include="App_Plugins\Terratype.GoogleMapsV3\Scripts\Terratype.GoogleMapsV3.js" />
+    <Content Include="App_Plugins\Terratype.GoogleMapsV3\Scripts\Terratype.GoogleMapsV3.min.js" />
+    <Content Include="App_Plugins\Terratype.GoogleMapsV3\Scripts\Terratype.GoogleMapsV3.Renderer.bundle.js" />
+    <Content Include="App_Plugins\Terratype.GoogleMapsV3\Scripts\Terratype.GoogleMapsV3.Renderer.bundle.min.js" />
+    <Content Include="App_Plugins\Terratype.GoogleMapsV3\Scripts\Terratype.GoogleMapsV3.Renderer.js" />
+    <Content Include="App_Plugins\Terratype.GoogleMapsV3\Scripts\Terratype.GoogleMapsV3.Renderer.min.js" />
+    <Content Include="App_Plugins\Terratype.GoogleMapsV3\Views\config.appearance.html" />
+    <Content Include="App_Plugins\Terratype.GoogleMapsV3\Views\config.definition.html" />
+    <Content Include="App_Plugins\Terratype.GoogleMapsV3\Views\config.search.html" />
+    <Content Include="App_Plugins\Terratype.GoogleMapsV3\Views\editor.appearance.html" />
+    <Content Include="App_Plugins\Terratype.GoogleMapsV3\Views\grid.appearance.html" />
+    <Content Include="App_Plugins\Terratype.LeafletV1\Css\leaflet.css" />
+    <Content Include="App_Plugins\Terratype.LeafletV1\Css\MarkerCluster.css" />
+    <Content Include="App_Plugins\Terratype.LeafletV1\Css\MarkerCluster.Default.css" />
+    <Content Include="App_Plugins\Terratype.LeafletV1\Images\Example.png" />
+    <Content Include="App_Plugins\Terratype.LeafletV1\Images\layers-2x.png" />
+    <Content Include="App_Plugins\Terratype.LeafletV1\Images\layers.png" />
+    <Content Include="App_Plugins\Terratype.LeafletV1\Images\Logo.png" />
+    <Content Include="App_Plugins\Terratype.LeafletV1\Images\marker-icon-2x.png" />
+    <Content Include="App_Plugins\Terratype.LeafletV1\Images\marker-icon.png" />
+    <Content Include="App_Plugins\Terratype.LeafletV1\Images\marker-shadow.png" />
+    <Content Include="App_Plugins\Terratype.LeafletV1\Lang\en-us.xml" />
+    <Content Include="App_Plugins\Terratype.LeafletV1\Scripts\leaflet-providers.js" />
+    <Content Include="App_Plugins\Terratype.LeafletV1\Scripts\leaflet-providers.min.js" />
+    <Content Include="App_Plugins\Terratype.LeafletV1\Scripts\leaflet-src.js" />
+    <Content Include="App_Plugins\Terratype.LeafletV1\Scripts\leaflet.js" />
+    <Content Include="App_Plugins\Terratype.LeafletV1\Scripts\leaflet.markercluster-src.js" />
+    <Content Include="App_Plugins\Terratype.LeafletV1\Scripts\leaflet.markercluster.js" />
+    <Content Include="App_Plugins\Terratype.LeafletV1\Scripts\Terratype.LeafletV1.js" />
+    <Content Include="App_Plugins\Terratype.LeafletV1\Scripts\Terratype.LeafletV1.Renderer.bundle.js" />
+    <Content Include="App_Plugins\Terratype.LeafletV1\Scripts\Terratype.LeafletV1.Renderer.bundle.min.js" />
+    <Content Include="App_Plugins\Terratype.LeafletV1\Scripts\Terratype.LeafletV1.Renderer.js" />
+    <Content Include="App_Plugins\Terratype.LeafletV1\Scripts\Terratype.LeafletV1.Renderer.min.js" />
+    <Content Include="App_Plugins\Terratype.LeafletV1\Scripts\tileservers.js" />
+    <Content Include="App_Plugins\Terratype.LeafletV1\Scripts\tileservers.min.js" />
+    <Content Include="App_Plugins\Terratype.LeafletV1\Views\config.appearance.html" />
+    <Content Include="App_Plugins\Terratype.LeafletV1\Views\config.definition.html" />
+    <Content Include="App_Plugins\Terratype.LeafletV1\Views\config.search.html" />
+    <Content Include="App_Plugins\Terratype.LeafletV1\Views\editor.appearance.html" />
+    <Content Include="App_Plugins\Terratype.LeafletV1\Views\grid.appearance.html" />
+    <Content Include="App_Plugins\Terratype\Css\label.standard.css" />
+    <Content Include="App_Plugins\Terratype\Images\Terratype.png" />
+    <Content Include="App_Plugins\Terratype\Lang\en-us.xml" />
+    <Content Include="App_Plugins\Terratype\readme.txt" />
+    <Content Include="App_Plugins\Terratype\Scripts\terratype.js" />
+    <Content Include="App_Plugins\Terratype\Scripts\terratype.min.js" />
+    <Content Include="App_Plugins\Terratype\Scripts\terratype.renderer.js" />
+    <Content Include="App_Plugins\Terratype\Scripts\terratype.renderer.min.js" />
+    <Content Include="App_Plugins\Terratype\Views\config.html" />
+    <Content Include="App_Plugins\Terratype\Views\editor.html" />
+    <Content Include="App_Plugins\Terratype\Views\grid.html" />
+    <Content Include="App_Plugins\Terratype\Views\grid.overlay.html" />
+    <Content Include="App_Plugins\Terratype\Views\label.standard.html" />
     <Content Include="config\imageprocessor\security.config" />
     <Content Include="config\imageprocessor\processing.config" />
     <Content Include="config\imageprocessor\cache.config" />
     <Content Include="App_Plugins\ModelsBuilder\package.manifest" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Site.css" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Media\Web.config" />
     <Content Include="config\umbracoSettings.config" />
-    <Content Include="config\trees.config" />
+    <Content Include="config\trees.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="config\tinyMceConfig.config" />
     <Content Include="config\scripting.config" />
     <Content Include="config\metablogConfig.config" />
@@ -303,7 +382,21 @@
     <Content Include="config\applications.config" />
     <Content Include="config\404handlers.config" />
     <Content Include="App_Plugins\Fluidity\package.manifest" />
-    <None Include="packages.config" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="App_Plugins\Terratype\package.manifest" />
+    <Content Include="App_Plugins\Terratype\Views\grid.cshtml" />
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="scripts\bootstrap.js" />
+    <Content Include="scripts\bootstrap.min.js" />
+    <None Include="scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="scripts\jquery-1.10.2.js" />
+    <Content Include="scripts\jquery-1.10.2.min.js" />
+    <Content Include="scripts\modernizr-2.6.2.js" />
+    <Content Include="scripts\umbraco-starterkit-app.js" />
     <Content Include="Views\Web.config" />
     <Content Include="Views\Partials\Grid\Editors\Textstring.cshtml" />
     <Content Include="Views\Partials\Grid\Editors\Rte.cshtml" />
@@ -315,6 +408,20 @@
     <Content Include="Views\Partials\Grid\Bootstrap3-Fluid.cshtml" />
     <Content Include="Views\Partials\Grid\Bootstrap2.cshtml" />
     <Content Include="Views\Partials\Grid\Bootstrap2-Fluid.cshtml" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\RandomPerson\Index.cshtml" />
+    <Content Include="scripts\jquery-1.10.2.min.map" />
+    <Content Include="Views\Blog.cshtml" />
+    <Content Include="Views\Blogpost.cshtml" />
+    <Content Include="Views\Contact.cshtml" />
+    <Content Include="Views\ContentPage.cshtml" />
+    <Content Include="Views\Home.cshtml" />
+    <Content Include="Views\Master.cshtml" />
+    <Content Include="Views\People.cshtml" />
+    <Content Include="Views\Person.cshtml" />
+    <Content Include="Views\Product.cshtml" />
+    <Content Include="Views\Products.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -352,7 +459,23 @@
   <ItemGroup>
     <Compile Include="ExternalData\Fluidity\Person.cs" />
     <Compile Include="ExternalData\Fluidity\FluidityBootstrap.cs" />
-    <Compile Include="ExternalData\PersonController.cs" />
+    <Compile Include="ExternalData\RandomPersonController.cs" />
+    <Compile Include="Models\Blog.generated.cs" />
+    <Compile Include="Models\Blogpost.generated.cs" />
+    <Compile Include="Models\Contact.generated.cs" />
+    <Compile Include="Models\ContentBase.generated.cs" />
+    <Compile Include="Models\ContentPage.generated.cs" />
+    <Compile Include="Models\Feature.generated.cs" />
+    <Compile Include="Models\File.generated.cs" />
+    <Compile Include="Models\Folder.generated.cs" />
+    <Compile Include="Models\Home.generated.cs" />
+    <Compile Include="Models\Image.generated.cs" />
+    <Compile Include="Models\Member.generated.cs" />
+    <Compile Include="Models\NavigationBase.generated.cs" />
+    <Compile Include="Models\People.generated.cs" />
+    <Compile Include="Models\Person.generated.cs" />
+    <Compile Include="Models\Product.generated.cs" />
+    <Compile Include="Models\Products.generated.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

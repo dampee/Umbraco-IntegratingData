@@ -1,0 +1,12 @@
+﻿@model Website.Sample.DbModels.Person
+@{
+    Layout = null;
+}
+<span>
+    Random Persona
+    <a href="mailto:@Html.DisplayFor(model => model.Email)">
+        @Html.DisplayFor(model => model.Name)
+    </a>
+    ( @Html.DisplayFor(model => model.JobTitle) )
+
+</span>

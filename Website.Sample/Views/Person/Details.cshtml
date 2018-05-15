@@ -1,0 +1,37 @@
+﻿@model Website.Sample.ExternalData.PersonViewModel
+@{
+    ViewBag.Title = "View";
+    Layout = "~/Views/Master.cshtml";
+}
+@Html.Partial("~/Views/Partials/SectionHeader.cshtml")
+
+<section class="section">
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col-md-6">
+                <a href="@Model.Content.Url">Back to list</a>
+                <h1>
+                    <img src="@Html.DisplayFor(modelItem => modelItem.Person.Avatar)"/>
+                    @Html.DisplayFor(modelItem => modelItem.Person.Name)
+                </h1>
+                <p>
+                    title:
+                    @Html.DisplayFor(modelItem => modelItem.Person.JobTitle)
+                </p>
+                <p>
+                    Email:
+                    @Html.DisplayFor(modelItem => modelItem.Person.Email)
+                </p>
+                <p>
+                    @Html.DisplayFor(modelItem => modelItem.Person.Telephone)
+                </p>
+                <p>
+                    Age:
+                    @Html.DisplayFor(modelItem => modelItem.Person.Age)
+                </p>
+            </div>
+        </div>
+    </div>
+</section>

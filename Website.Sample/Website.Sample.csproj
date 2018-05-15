@@ -408,8 +408,6 @@
     <Content Include="Views\Partials\Grid\Bootstrap3-Fluid.cshtml" />
     <Content Include="Views\Partials\Grid\Bootstrap2.cshtml" />
     <Content Include="Views\Partials\Grid\Bootstrap2-Fluid.cshtml" />
-    <Content Include="Views\_ViewStart.cshtml" />
-    <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\RandomPerson\Index.cshtml" />
     <Content Include="scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\Blog.cshtml" />
@@ -419,9 +417,15 @@
     <Content Include="Views\Home.cshtml" />
     <Content Include="Views\Master.cshtml" />
     <Content Include="Views\People.cshtml" />
-    <Content Include="Views\Person.cshtml" />
     <Content Include="Views\Product.cshtml" />
     <Content Include="Views\Products.cshtml" />
+    <Content Include="Views\Person\Details.cshtml" />
+    <Content Include="Views\MacroPartials\FeaturedProducts.cshtml" />
+    <Content Include="Views\MacroPartials\LatestBlogposts.cshtml" />
+    <Content Include="Views\Partials\CategoryLinks.cshtml" />
+    <Content Include="Views\Partials\Navigation\SubNavigation.cshtml" />
+    <Content Include="Views\Partials\Navigation\TopNavigation.cshtml" />
+    <Content Include="Views\Partials\SectionHeader.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -457,9 +461,15 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ExternalData\Fluidity\Person.cs" />
+    <Compile Include="ExternalData\Controllers\PeopleController.cs" />
+    <Compile Include="ExternalData\DbModel\Person.cs" />
     <Compile Include="ExternalData\Fluidity\FluidityBootstrap.cs" />
-    <Compile Include="ExternalData\RandomPersonController.cs" />
+    <Compile Include="ExternalData\Controllers\PersonController.cs" />
+    <Compile Include="ExternalData\Events\PersonRoutingEvents.cs" />
+    <Compile Include="ExternalData\ViewModels\PersonListViewModel.cs" />
+    <Compile Include="ExternalData\PersonRepository.cs" />
+    <Compile Include="ExternalData\ViewModels\PersonViewModel.cs" />
+    <Compile Include="ExternalData\Controllers\RandomPersonController.cs" />
     <Compile Include="Models\Blog.generated.cs" />
     <Compile Include="Models\Blogpost.generated.cs" />
     <Compile Include="Models\Contact.generated.cs" />

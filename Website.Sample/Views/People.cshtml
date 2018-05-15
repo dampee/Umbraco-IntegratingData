@@ -1,5 +1,5 @@
-﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage<Website.Sample.PublishedContentModels.People>
-@using ContentModels = Umbraco.Web.PublishedContentModels;
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<Website.Sample.ExternalData.PersonListViewModel>
+@using ContentModels = Website.Sample.PublishedContentModels;
 @{
     Layout = "Master.cshtml";
 }
@@ -27,23 +27,24 @@
         </nav>
         -->
         <div class="employee-grid">
-            @foreach (Website.Sample.PublishedContentModels.Person person in Model.Content.Children)
+            @foreach (var person in Model.Persons)
             {
 
                 <div class="employee-grid__item">
-                    <div class="employee-grid__item__image" style="background-image: url('@person.Photo.Url')"></div>
+                    <div class="employee-grid__item__image" style="background-image: url('@person.Avatar')"></div>
                     <div class="employee-grid__item__details">
                         <h3 class="employee-grid__item__name">@person.Name</h3>
                         @if (!string.IsNullOrEmpty(person.Email))
                         {
                             <a href="mailto:@person.Email" class="employee-grid__item__email">@person.Email</a>
                         }
-                        <div class="employee-grid__item__contact">
+                        @*<div class="employee-grid__item__contact">
                             @SocialLink(person.FacebookUsername, "Facebook")
                             @SocialLink(person.TwitterUsername, "Twitter")
                             @SocialLink(person.LinkedInUsername, "LinkedIn")
                             @SocialLink(person.InstagramUsername, "Instagram")
-                        </div>
+                        </div>*@
+                <a href="@Url.RouteUrl("PersonDetails", new {slug = person.Name})">more info</a>
                     </div>
                 </div>
             }

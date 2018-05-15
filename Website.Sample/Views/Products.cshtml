@@ -1,5 +1,5 @@
-﻿@inherits UmbracoTemplatePage<Products>
-@using ContentModels = Umbraco.Web.PublishedContentModels;
+﻿@inherits UmbracoTemplatePage<Website.Sample.PublishedContentModels.Products>
+@using ContentModels = Website.Sample.PublishedContentModels;
 @{
     Layout = "Master.cshtml";
 }
@@ -22,7 +22,7 @@
         <div class="product-grid">
             @if (Model.Content.FeaturedProducts != null)
             {
-                foreach (Product product in Model.Content.FeaturedProducts)
+                foreach (ContentModels.Product product in Model.Content.FeaturedProducts)
                 {
                     <a href="@product.Url" class="product-grid__item" style="background-image: url('@product.Photos.FirstOrDefault().Url')">
                         <div class="product-grid__item__overlay">

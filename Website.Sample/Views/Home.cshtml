@@ -1,5 +1,5 @@
 ﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage<Website.Sample.PublishedContentModels.Home>
-@using ContentModels = Umbraco.Web.PublishedContentModels;
+@using ContentModels = Website.Sample.PublishedContentModels;
 @{
     Layout = "Master.cshtml";
     var backgroundImage = Model.Content.HeroBackgroundImage != null ? Model.Content.HeroBackgroundImage.Url : String.Empty;

@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<language alias="en" intName="English (US)" localName="English (US)" lcid="" culture="en-US">
+  <creator>
+    <name>Fluidity</name>
+    <link>http://our.umbraco.org</link>
+  </creator>
+  <area alias="sections">
+    <key alias="fluidity">Fluidity</key>
+    <key alias="database" autoGen="true">Database</key>
+  </area>
+</language>

@@ -1,4 +1,4 @@
-﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage<ContentModels.People>
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage<Website.Sample.PublishedContentModels.People>
 @using ContentModels = Umbraco.Web.PublishedContentModels;
 @{
     Layout = "Master.cshtml";
@@ -27,7 +27,7 @@
         </nav>
         -->
         <div class="employee-grid">
-            @foreach (ContentModels.Person person in Model.Content.Children)
+            @foreach (Website.Sample.PublishedContentModels.Person person in Model.Content.Children)
             {
 
                 <div class="employee-grid__item">

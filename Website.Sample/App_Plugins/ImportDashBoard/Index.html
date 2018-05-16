@@ -1,13 +1,13 @@
 ﻿<div class="import-dashboard" ng-controller="ImportDashboardController as vm">
     <div ng-show="vm.AllowImports">
-        <h1>Import Stuff</h1>
-        <form id="googleImport" action="/umbraco/backoffice/Import/ProcessImportData" method="post" enctype = "multipart/form-data" target="_blank">
-            <div class="row">
+        <h1>Import latest flickr photo</h1>
+        <form id="flickrImport" action="/umbraco/backoffice/Import/ProcessImportData" method="post" enctype = "multipart/form-data" target="_blank">
+            <!--<div class="row">
                 <label for="file">File</label>
                 <input id="file" name="file" type="file"/>
-            </div>
+            </div>-->
 
-            <div class="row">
+            <!--<div class="row">
                 <label for="immediate">Import Immediatly</label>
                 <input id="immediate" name="immediate" type="checkbox"/>
                 <br/>
@@ -16,7 +16,7 @@
                     This can cause performance issues on the website. 
                     When not ticked, the import will run at a later time.
                 </label>
-            </div>
+            </div>-->
 
             <div class="row">
                 <button type="submit">Import</button>

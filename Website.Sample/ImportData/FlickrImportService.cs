@@ -9,23 +9,14 @@ using System.Web.Hosting;
 using FlickrNet;
 using Umbraco.Core;
 using Umbraco.Core.Models;
-using Umbraco.Core.Services;
 using Umbraco.Web;
 using Website.Sample.ExternalData;
-using Website.Sample.PublishedContentModels;
 
 
 namespace Website.Sample.ImportData
 {
-    public class DummyImportService : IImportService
+    public class FlickrImportService : IImportService
     {
-        private readonly PersonRepository _personRepository;
-
-        public DummyImportService(PersonRepository personRepository = null)
-        {
-            _personRepository = personRepository;
-        }
-
         public bool ProcessDataImportFromStream(MemoryStream stream, string fileFileName, StringBuilder sb)
         {
             throw new NotImplementedException();
@@ -52,14 +43,16 @@ namespace Website.Sample.ImportData
             mediaService.Save(newmedia);
 
             // bad code, should use repository
-            var products = UmbracoContext.Current.ContentCache.GetSingleByXPath($"//{PublishedContentModels.Products.ModelTypeAlias}");
+            var productsNode = UmbracoContext.Current.ContentCache.GetSingleByXPath($"//{PublishedContentModels.Products.ModelTypeAlias}");
+
             var contentService = ApplicationContext.Current.Services.ContentService;
-            var newNode = contentService.CreateContentWithIdentity(photo.Title, products.Id,
+            var newNode = contentService.CreateContentWithIdentity(photo.Title, productsNode.Id,
                 PublishedContentModels.Product.ModelTypeAlias);
 
             newNode.SetValue("description", "flickr description: " + photo.Description ?? "none");
             newNode.SetValue("photos", $"{newmedia.GetUdi()}");
-            newNode.SetValue("price", 0);
+            Random rand = new Random();
+            newNode.SetValue("price", rand.Next(1, 1000));
             newNode.SetValue("category", "flickr");
             newNode.SetValue("productName", photo.Title);
             contentService.SaveAndPublishWithStatus(newNode);

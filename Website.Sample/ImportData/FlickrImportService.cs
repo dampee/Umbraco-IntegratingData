@@ -46,7 +46,7 @@ namespace Website.Sample.ImportData
             var productsNode = UmbracoContext.Current.ContentCache.GetSingleByXPath($"//{PublishedContentModels.Products.ModelTypeAlias}");
 
             var contentService = ApplicationContext.Current.Services.ContentService;
-            var newNode = contentService.CreateContentWithIdentity(photo.Title, productsNode.Id,
+            var newNode = contentService.CreateContentWithIdentity(photo.PhotoId, productsNode.Id,
                 PublishedContentModels.Product.ModelTypeAlias);
 
             newNode.SetValue("description", "flickr description: " + photo.Description ?? "none");

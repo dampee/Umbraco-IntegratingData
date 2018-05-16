@@ -19,16 +19,8 @@ namespace Website.Sample.ImportData
     /// </remarks>
     public class ImportController : UmbracoAuthorizedController
     {
-        private readonly IImportService _importService;
-
-        public ImportController()
-        {
-            _importService = new FlickrImportService();
-        }
-
-        [System.Web.Mvc.HttpPost]
-        [System.Web.Mvc.AcceptVerbs("POST")]
-        public string ProcessImportData(string immediate, [Bind(Include = "File")] HttpPostedFileBase file)
+        [HttpPost]
+        public string ProcessImportData(string immediate)
         {
             var temp = Request;
             if (immediate == "on")
@@ -55,6 +47,13 @@ namespace Website.Sample.ImportData
             }
 
             return "Error: " + sb;
+        }
+
+        private readonly IImportService _importService;
+
+        public ImportController()
+        {
+            _importService = new FlickrImportService();
         }
 
         [System.Web.Mvc.HttpGet]

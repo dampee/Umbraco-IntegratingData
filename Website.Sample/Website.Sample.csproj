@@ -361,9 +361,6 @@
     <Content Include="config\imageprocessor\processing.config" />
     <Content Include="config\imageprocessor\cache.config" />
     <Content Include="App_Plugins\ModelsBuilder\package.manifest" />
-    <Content Include="Content\bootstrap.css" />
-    <Content Include="Content\bootstrap.min.css" />
-    <Content Include="Content\Site.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Media\Web.config" />
     <Content Include="config\umbracoSettings.config" />
@@ -476,9 +473,10 @@
     <Compile Include="ExternalData\PersonRepository.cs" />
     <Compile Include="ExternalData\ViewModels\PersonViewModel.cs" />
     <Compile Include="ExternalData\Controllers\RandomPersonController.cs" />
-    <Compile Include="ImportData\DummyImportService.cs" />
+    <Compile Include="ImportData\FlickrImportService.cs" />
     <Compile Include="ImportData\ImportController.cs" />
     <Compile Include="ImportData\Events\RouteRegistration.cs" />
+    <Compile Include="ImportData\ProductUrlSegmentProvider.cs" />
     <Compile Include="Models\Blog.generated.cs" />
     <Compile Include="Models\Blogpost.generated.cs" />
     <Compile Include="Models\Contact.generated.cs" />

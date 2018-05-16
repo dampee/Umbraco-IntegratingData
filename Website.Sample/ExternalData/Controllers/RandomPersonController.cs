@@ -15,7 +15,7 @@ namespace Website.Sample.ExternalData
         {
             var db = ApplicationContext.DatabaseContext.Database;
             // demo code, do not do this in production
-            var randomperson = db.Fetch<Person>("WHERE Id>0").RandomOrder().First();
+            var randomperson = db.Fetch<Person>("WHERE Id > @0", 0).RandomOrder().First();
             return View("Index", randomperson);
         }
     }

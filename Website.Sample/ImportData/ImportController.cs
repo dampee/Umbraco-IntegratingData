@@ -14,9 +14,9 @@ namespace Website.Sample.ImportData
     {
         private readonly IImportService _importService;
 
-        public ImportController(IImportService importService)
+        public ImportController()
         {
-            _importService = importService;
+            _importService = new DummyImportService();
         }
 
         [System.Web.Mvc.HttpPost]
@@ -24,7 +24,7 @@ namespace Website.Sample.ImportData
         public string ProcessImportData(string immediate, [Bind(Include = "File")] HttpPostedFileBase file)
         {
             var temp = Request;
-            if (immediate != "on")
+            if (immediate == "on")
             {
                 // send to hangfire
                 throw new NotImplementedException();
@@ -34,11 +34,15 @@ namespace Website.Sample.ImportData
             var sb = new StringBuilder();
             using (var stream = new MemoryStream())
             {
-                file.InputStream.CopyTo(stream);
-                stream.Seek(0, SeekOrigin.Begin);
-                if (_importService.ProcessDataImportFromStream(stream, file.FileName, sb))
+                if (file != null)
                 {
-                    //todo Export SB result
+                    stream.Seek(0, SeekOrigin.Begin);
+                    file.InputStream.CopyTo(stream);
+                    // _importService.WithSuppliedFile
+                }
+
+                if (_importService.AddDummyContent(sb))
+                {
                     return sb.ToString();
                 };
             }

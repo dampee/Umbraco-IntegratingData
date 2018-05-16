@@ -70,6 +70,9 @@
     <Reference Include="Examine, Version=0.1.89.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Examine.0.1.89\lib\net45\Examine.dll</HintPath>
     </Reference>
+    <Reference Include="FlickrNet, Version=3.25.0.0, Culture=neutral, PublicKeyToken=2491df59efa5d132, processorArchitecture=MSIL">
+      <HintPath>..\packages\FlickrNet.3.25.0\lib\net20\FlickrNet.dll</HintPath>
+    </Reference>
     <Reference Include="Fluidity, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Our.Umbraco.Fluidity.Core.1.0.2\lib\net45\Fluidity.dll</HintPath>
     </Reference>
@@ -473,7 +476,9 @@
     <Compile Include="ExternalData\PersonRepository.cs" />
     <Compile Include="ExternalData\ViewModels\PersonViewModel.cs" />
     <Compile Include="ExternalData\Controllers\RandomPersonController.cs" />
+    <Compile Include="ImportData\DummyImportService.cs" />
     <Compile Include="ImportData\ImportController.cs" />
+    <Compile Include="ImportData\Events\RouteRegistration.cs" />
     <Compile Include="Models\Blog.generated.cs" />
     <Compile Include="Models\Blogpost.generated.cs" />
     <Compile Include="Models\Contact.generated.cs" />
@@ -496,9 +501,7 @@
     <Analyzer Include="..\packages\Microsoft.CodeAnalysis.Analyzers.1.0.0\analyzers\dotnet\cs\Microsoft.CodeAnalysis.Analyzers.dll" />
     <Analyzer Include="..\packages\Microsoft.CodeAnalysis.Analyzers.1.0.0\analyzers\dotnet\cs\Microsoft.CodeAnalysis.CSharp.Analyzers.dll" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="BackendApi\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

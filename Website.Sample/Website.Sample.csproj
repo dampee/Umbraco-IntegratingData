@@ -288,6 +288,8 @@
     <Content Include="App_Plugins\Fluidity\resources\fluidity.resource.js" />
     <Content Include="App_Plugins\Fluidity\services\fluidity.bulkactions.service.js" />
     <Content Include="App_Plugins\Fluidity\services\fluidity.utility.service.js" />
+    <Content Include="App_Plugins\ImportDashBoard\index.controller.js" />
+    <Content Include="App_Plugins\ImportDashBoard\Index.html" />
     <Content Include="App_Plugins\Terratype.GoogleMapsV3\Images\Example.png" />
     <Content Include="App_Plugins\Terratype.GoogleMapsV3\Images\Logo.png" />
     <Content Include="App_Plugins\Terratype.GoogleMapsV3\Images\m1.png" />
@@ -387,6 +389,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="App_Plugins\Terratype\package.manifest" />
     <Content Include="App_Plugins\Terratype\Views\grid.cshtml" />
+    <Content Include="App_Plugins\ImportDashBoard\package.manifest" />
     <None Include="packages.config">
       <SubType>Designer</SubType>
     </None>
@@ -470,6 +473,7 @@
     <Compile Include="ExternalData\PersonRepository.cs" />
     <Compile Include="ExternalData\ViewModels\PersonViewModel.cs" />
     <Compile Include="ExternalData\Controllers\RandomPersonController.cs" />
+    <Compile Include="ImportData\ImportController.cs" />
     <Compile Include="Models\Blog.generated.cs" />
     <Compile Include="Models\Blogpost.generated.cs" />
     <Compile Include="Models\Contact.generated.cs" />

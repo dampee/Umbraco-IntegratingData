@@ -1,0 +1,10 @@
+﻿{
+  "javascript": [
+    /*javascript files listed here*/
+    "~/app_plugins/ImportDashBoard/index.controller.js"
+  ],
+    "css": [
+        /*list of stylesheets appear here:*/
+        //"~/app_plugins/CustomWelcomeDashboard/customwelcomedashboard.css"
+    ]
+}

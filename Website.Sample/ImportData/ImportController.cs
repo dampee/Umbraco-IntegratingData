@@ -10,13 +10,20 @@ using Umbraco.Web.Mvc;
 
 namespace Website.Sample.ImportData
 {
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <remarks>
+    /// When using UmbracoAuthorizedController we need to register the routes
+    /// We do this in the umbraco startup <see cref="RouteRegistration"/>
+    /// </remarks>
     public class ImportController : UmbracoAuthorizedController
     {
         private readonly IImportService _importService;
 
         public ImportController()
         {
-            _importService = new DummyImportService();
+            _importService = new FlickrImportService();
         }
 
         [System.Web.Mvc.HttpPost]

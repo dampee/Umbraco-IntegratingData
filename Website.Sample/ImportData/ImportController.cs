@@ -22,7 +22,6 @@ namespace Website.Sample.ImportData
         [HttpPost]
         public string ProcessImportData(string immediate)
         {
-            var temp = Request;
             if (immediate == "on")
             {
                 // send to hangfire
@@ -31,19 +30,9 @@ namespace Website.Sample.ImportData
             }
 
             var sb = new StringBuilder();
-            using (var stream = new MemoryStream())
+            if (_importService.AddDummyContent(sb))
             {
-                if (file != null)
-                {
-                    stream.Seek(0, SeekOrigin.Begin);
-                    file.InputStream.CopyTo(stream);
-                    // _importService.WithSuppliedFile
-                }
-
-                if (_importService.AddDummyContent(sb))
-                {
-                    return sb.ToString();
-                };
+                return sb.ToString();
             }
 
             return "Error: " + sb;

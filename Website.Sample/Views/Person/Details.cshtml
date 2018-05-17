@@ -2,8 +2,15 @@
 @{
     ViewBag.Title = "View";
     Layout = "~/Views/Master.cshtml";
+    var breadCrumbNodes = new[] {Model.Content.Parent.Name, Model.Content.Name};
+    var image = Model.Person.Avatar;
 }
+
 @Html.Partial("~/Views/Partials/SectionHeader.cshtml")
+
+<div>
+    @breadCrumbNodes
+</div>
 
 <section class="section">
     <div class="container">
@@ -13,7 +20,10 @@
             <div class="col-md-6">
                 <a href="@Model.Content.Url">Back to list</a>
                 <h1>
-                    <img src="@Html.DisplayFor(modelItem => modelItem.Person.Avatar)"/>
+                    @if (image != null)
+                    {
+                        <img src="@Html.DisplayFor(modelItem => modelItem.Person.Avatar)"/>
+                    }
                     @Html.DisplayFor(modelItem => modelItem.Person.Name)
                 </h1>
                 <p>

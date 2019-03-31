@@ -1,17 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net;
 using System.Text;
-using System.Web;
 using System.Web.Hosting;
 using FlickrNet;
 using Umbraco.Core;
-using Umbraco.Core.Models;
+using Umbraco.Core.IO;
 using Umbraco.Core.Services.Implement;
 using Umbraco.Web;
-using Website.Sample.ExternalData;
 
 
 namespace Website.Sample.ImportData
@@ -20,11 +17,17 @@ namespace Website.Sample.ImportData
     {
         private readonly MediaService _mediaService;
         private readonly ContentService _contentService;
+        private readonly MediaFileSystem _mediaFileSystem;
+        private readonly IUmbracoContextFactory _contextFactory;
 
-        public FlickrImportService(MediaService mediaService, ContentService contentService)
+        public FlickrImportService(MediaService mediaService, ContentService contentService, MediaFileSystem mediaFileSystem,
+            IUmbracoContextFactory contextFactory)
         {
             _mediaService = mediaService;
             _contentService = contentService;
+            _mediaFileSystem = mediaFileSystem;
+            _contextFactory = contextFactory;
+            // poke around in Umbraco.Core.Composing.Current.
         }
 
         public bool ProcessDataImportFromStream(MemoryStream stream, string fileFileName, StringBuilder sb)
@@ -47,12 +50,17 @@ namespace Website.Sample.ImportData
             var newFileName = Path.Combine(destinationFolder, photo.PhotoId + ".jpg");
             new WebClient().DownloadFile(photo.LargeUrl, newFileName);
             var s = new FileStream(newFileName, FileMode.Open);
-            newmedia.SetValue("umbracoFile", Path.GetFileName(newFileName), s);
+            newmedia.SetValue("umbracoFile", Path.GetFileName(newFileName), s); // First issue
             s.Close();
             _mediaService.Save(newmedia);
 
             // bad code, should use repository
-            var productsNode = UmbracoContext.Current.ContentCache.GetSingleByXPath($"//{PublishedContentModels.Products.ModelTypeAlias}");
+            Umbraco.Core.Models.PublishedContent.IPublishedContent productsNode;
+            using (var cref = _contextFactory.EnsureUmbracoContext())
+            {
+                var contentCache = cref.UmbracoContext.ContentCache;
+                productsNode = contentCache.GetSingleByXPath($"//{PublishedContentModels.Products.ModelTypeAlias}");
+            }
 
             var newNode = _contentService.Create(photo.PhotoId, productsNode.Id,
                 PublishedContentModels.Product.ModelTypeAlias);

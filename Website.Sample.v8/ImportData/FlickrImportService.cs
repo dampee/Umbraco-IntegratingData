@@ -50,6 +50,7 @@ namespace Website.Sample.ImportData
             var newFileName = Path.Combine(destinationFolder, photo.PhotoId + ".jpg");
             new WebClient().DownloadFile(photo.LargeUrl, newFileName);
             var s = new FileStream(newFileName, FileMode.Open);
+            // let us hope someone responds on : https://our.umbraco.com/forum/umbraco-8//96589-upload-a-new-media-item-from-code-in-v8
             newmedia.SetValue("umbracoFile", Path.GetFileName(newFileName), s); // First issue
             s.Close();
             _mediaService.Save(newmedia);

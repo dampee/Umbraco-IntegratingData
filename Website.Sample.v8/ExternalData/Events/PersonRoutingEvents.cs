@@ -18,9 +18,13 @@ namespace Website.Sample.ExternalData
     /// Class PersonRoutingEvents, will add a route for the persons
     /// </summary>
     /// <seealso cref="Umbraco.Core.ApplicationEventHandler" />
-    public class PersonRoutingComposer
-        : ComponentComposer<RegisterCustomRouteComponent>
+    //public class PersonRoutingComposer : ComponentComposer<RegisterCustomRouteComponent>
+    public class PersonRoutingComposer : IUserComposer
     {
+        public void Compose(Composition composition)
+        {
+            composition.Register<RegisterCustomRouteComponent>();
+        }
     }
 
     public class RegisterCustomRouteComponent : IComponent

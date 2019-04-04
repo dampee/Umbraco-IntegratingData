@@ -40,9 +40,9 @@ namespace Website.Sample.ImportData
 
         private readonly IImportService _importService;
 
-        public ImportController()
+        public ImportController(FlickrImportService flickrImportService)
         {
-            _importService = new FlickrImportService();
+            _importService = flickrImportService;
         }
 
         [System.Web.Mvc.HttpGet]

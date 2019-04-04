@@ -11,9 +11,9 @@ namespace Website.Sample.ExternalData
     {
         private readonly PersonRepository _personRepository;
 
-        public PersonController()
+        public PersonController(PersonRepository personRepo)
         {
-            _personRepository = new PersonRepository();
+            _personRepository = personRepo;
         }
 
         // GET: Person
@@ -34,7 +34,7 @@ namespace Website.Sample.ExternalData
 
             return base.Index(vm);
         }
-        
+
         private ActionResult NotFound(ContentModel model)
         {
             throw new NotImplementedException("The person is not found");

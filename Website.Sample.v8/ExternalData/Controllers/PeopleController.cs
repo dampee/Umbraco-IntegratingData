@@ -12,9 +12,9 @@ namespace Website.Sample.ExternalData
     {
         private readonly PersonRepository _personRepository;
 
-        public PeopleController()
+        public PeopleController(PersonRepository personRepository)
         {
-            _personRepository = new PersonRepository();
+            _personRepository = personRepository;
         }
 
         // GET: Person

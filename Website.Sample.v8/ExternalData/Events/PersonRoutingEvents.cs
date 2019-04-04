@@ -18,9 +18,21 @@ namespace Website.Sample.ExternalData
     /// Class PersonRoutingEvents, will add a route for the persons
     /// </summary>
     /// <seealso cref="Umbraco.Core.ApplicationEventHandler" />
-    public class PersonRoutingComposer : IUserComposer
+    public class PersonRoutingComposer
+        : ComponentComposer<RegisterCustomRouteComponent>
     {
-        public void Compose(Composition composition)
+    }
+
+    public class RegisterCustomRouteComponent : IComponent
+    {
+        private readonly FindPeopleRouteHandler _findPeopleRouteHandler;
+
+        public RegisterCustomRouteComponent(FindPeopleRouteHandler findPeopleRouteHandler)
+        {
+            _findPeopleRouteHandler = findPeopleRouteHandler;
+        }
+
+        public void Initialize()
         {
             RouteTable.Routes.MapUmbracoRoute(
                 "PersonDetails",
@@ -32,17 +44,22 @@ namespace Website.Sample.ExternalData
                     slug = UrlParameter.Optional
                 },
                 //next line does the magic
-                new FindPeopleRouteHandler()
+                _findPeopleRouteHandler
                 );
+        }
+
+        public void Terminate()
+        {
+            // don't need to do a thing
         }
     }
 
     public class FindPeopleRouteHandler : UmbracoVirtualNodeRouteHandler
     {
         private readonly PersonRepository _personRepository;
-        public FindPeopleRouteHandler()
+        public FindPeopleRouteHandler(PersonRepository personRepository)
         {
-            _personRepository = new PersonRepository();
+            _personRepository = personRepository;
         }
 
         protected override IPublishedContent FindContent(RequestContext requestContext, UmbracoContext umbracoContext)

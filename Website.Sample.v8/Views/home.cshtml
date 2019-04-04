@@ -1,6 +1,6 @@
 ﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<ContentModels.Home>
-@using ContentModels = Umbraco.Web.PublishedModels;
-@{
+@using ContentModels = Website.Sample.PublishedContentModels;
+@{ 
     Layout = "master.cshtml";
     var backgroundImage = Model.HeroBackgroundImage != null ? Model.HeroBackgroundImage.Url : String.Empty;
 }
